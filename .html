@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <title>Niyazfolder</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { background-color: #f0f8ff; color: #333; font-family: Arial, sans-serif; }
+        header { background-color: #4CAF50; color: white; padding: 10px 0; text-align: center; }
+        nav ul { list-style-type: none; padding: 0; }
+        nav ul li { display: inline; margin: 0 15px; }
+        nav ul li a { text-decoration: none; color: #4CAF50; }
+        footer { background-color: #4CAF50; color: white; text-align: center; padding: 10px 0; }
+        .clearfix { clear: both; }
+        .container { display: flex; justify-content: space-between; }
+        .news, .radio { width: 48%; }
+        .radio-section { display: none; } /* Initially hide the section */
+        .toggle-button { cursor: pointer; background-color: #4CAF50; color: white; padding: 10px; border: none; margin-top: 10px; }
+    </style>
+    <script>
+        function toggleRadio() {
+            const radioSection = document.getElementById('radio-section');
+            radioSection.style.display = radioSection.style.display === 'none' || radioSection.style.display === '' ? 'block' : 'none';
+        }
+
+        function playShakthiFM() {
+            const currentTime = new Date();
+            const hours = currentTime.getHours();
+            const minutes = currentTime.getMinutes();
+
+            // Check if the current time is 21: (9:05 PM)
+            if (hours === 21 && minutes === 05) {
+                const shakthiAudio = document.getElementById('shakthi-audio');
+                shakthiAudio.play();
+            }
+        }
+
+        
+
+        function playSelectedStation() {
+            const radios = document.getElementsByName('radio-station');
+            let selectedStation = null;
+
+            for (const radio of radios) {
+                if (radio.checked) {
+                    selectedStation = radio.value;
+                    break;
+                }
+            }
+
+            const audioElements = document.querySelectorAll('audio');
+            audioElements.forEach(audio => {
+                audio.pause(); // Pause all audio elements
+            });
+
+            if (selectedStation) {
+                const selectedAudio = document.getElementById(selectedStation);
+                selectedAudio.play(); // Play the selected audio
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welcome</h1>
+        <h2>created 05/01/2025<br>@Polonnaruwa</h2>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="https://www.muslimvanoli.com/p/contact-us.html">Home</a></li>
+            <li><a href="https://quranicaudio.com/">அல்-குர்ஆண்</a></li>
+            <li><a href="mailto:niyazhameed13@gmail.com">Contact: +94 757077656</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section class="news">
+            <h2>News</h2>
+            <ul>
+                <li><a href="https://www.dailymirror.lk">Daily Mirror</a></li>
+                <li><a href="https://www.cricbuzz.com">Cricbuzz</a></li>
+                <li><a href="https://meteo.gov.lk/index.php?lang=en">Weather</a></li>
+            </ul>
+            
+        </section>
+
+        <section class="radio">
+          
+            <button class="toggle-button" onclick="toggleRadio()">Toggle Radio Stations</button>
+            <div class="radio-section" id="radio-section">
+                <form>
+                    <section id="muslim-vanoli">
+                        <label>
+                            <input type="radio" name="radio-station" value="muslim-vanoli" onclick="playSelectedStation()">
+                            Muslim Vanoli
+                        </label>
+                        <audio id="muslim-vanoli" controls>
+                            <source src="https://stream.muslimvanoli.com:1035/stream" type="audio/ogg">
+                        </audio>
+                    </section>
+                    <section id="sooriyan-fm">
+                        <label>
+                            <input type="radio" name="radio-station" value="sooriyan-fm" onclick="playSelectedStation()">
+                            Sooriyan FM
+                        </label>
+                        <audio id="sooriyan-fm" controls>
+                            <source src="https://radio.lotustechnologieslk.net:8006/;stream.mp3"                                                         type="audio/ogg">
+                        </audio>
+                    </section>
+                    <section id="shakthi-fm">
+                        <label>
+                            <input type="radio" name="radio-station" value="shakthi-audio" onclick="playSelectedStation()">
+                            Shakthi FM
+                        </label>
+                        <audio id="shakthi-audio" controls>
+                            
+                            <source src="https://mbc.thestreamtech.com:8086/stream" type="audio/ogg">
+                        </audio>
+                    </section>
+                    <section id="tamil-national-service">
+                        <label>
+                            <input type="radio" name="radio-station" value="tamil-national-service" onclick="playSelectedStation()">
+                            Tamil National Service </label>
+                        <audio id="tamil-national-service" controls>
+                            <source src="https://ssl.surfmusic.de/s.php?s=http://220.247.227.6:8000/Tnsstream?1737629476" type="audio/mpeg">
+                        </audio>
+                    </section>
+                    <section id="thendral-fm">
+                        <label>
+                            <input type="radio" name="radio-station" value=" thendral-fm" onclick="playSelectedStation()">
+                            Thendral FM
+                        </label>
+                        <audio id="thendral-fm" controls>
+                            <source src="https://ssl.surfmusic.de/s.php?s=http://220.247.227.20:8000/Threndralstream?1737629131" type="audio/mpeg">
+                        </audio>
+                    </section>
+                    <section id="Vasantham-Fm">
+                        <label>
+                            <input type="radio" name="radio-station" value="Vasantham-Fm"
+  onclick="playSelectedStation()"> Vasantham Fm  </label>  
+  <audio id="Vasantham-Fm" controls> <source src="https://cp12.serverse.com/proxy/vasanthamfm?mp=/stream&1737629608" type="audio/mpeg"></audio> </section>
+                    <section id="bbc-world-service">
+                        <label>
+                            <input type="radio" name="radio-station" value="bbc-world-service" onclick="playSelectedStation()">
+                            BBC World Service
+                        </label>
+                        <audio id="bbc-world-service" controls>
+                            <source src="http://stream.live.vc.bbcmedia.co.uk/bbc_world_service" type="audio/mpeg">
+                        </audio>
+                    </section>
+                </form>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Niyazfolder. All rights reserved.</p>
+    </footer>
+</body>
+</html>
