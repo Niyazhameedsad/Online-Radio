@@ -19,10 +19,7 @@
         .toggle-button { cursor: pointer; background-color: #4CAF50; color: white; padding: 10px; border: none; margin-top: 10px; }
     </style>
     <script>
-        function toggleRadio() {
-            const radioSection = document.getElementById('radio-section');
-            radioSection.style.display = radioSection.style.display === 'none' || radioSection.style.display === '' ? 'block' : 'none';
-        }
+        
 
         function playShakthiFM() {
             const currentTime = new Date();
@@ -34,31 +31,7 @@
                 const shakthiAudio = document.getElementById('shakthi-audio');
                 shakthiAudio.play();
             }
-        }
-
         
-
-        function playSelectedStation() {
-            const radios = document.getElementsByName('radio-station');
-            let selectedStation = null;
-
-            for (const radio of radios) {
-                if (radio.checked) {
-                    selectedStation = radio.value;
-                    break;
-                }
-            }
-
-            const audioElements = document.querySelectorAll('audio');
-            audioElements.forEach(audio => {
-                audio.pause(); // Pause all audio elements
-            });
-
-            if (selectedStation) {
-                const selectedAudio = document.getElementById(selectedStation);
-                selectedAudio.play(); // Play the selected audio
-            }
-        }
     </script>
 </head>
 <body>
@@ -87,72 +60,64 @@
 
         <section class="radio">
           
-            <button class="toggle-button" onclick="toggleRadio()">Toggle Radio Stations</button>
-            <div class="radio-section" id="radio-section">
-                <form>
-                    <section id="muslim-vanoli">
-                        <label>
-                            <input type="radio" name="radio-station" value="muslim-vanoli" onclick="playSelectedStation()">
+       
                             Muslim Vanoli
-                        </label>
+                        
                         <audio id="muslim-vanoli" controls>
                             <source src="https://stream.muslimvanoli.com:1035/stream" type="audio/ogg">
                         </audio>
-                    </section>
+                   
                     <section id="sooriyan-fm">
-                        <label>
-                            <input type="radio" name="radio-station" value="sooriyan-fm" onclick="playSelectedStation()">
+                        
+                            
                             Sooriyan FM
-                        </label>
+                        
                         <audio id="sooriyan-fm" controls>
-                            <source src="https://radio.lotustechnologieslk.net:8006/;stream.mp3"                                                         type="audio/ogg">
+                            <source 										          src="https://radio.lotustechnologieslk.net:8006/;stream.mp3"                                                         type="audio/ogg">
                         </audio>
-                    </section>
-                    <section id="shakthi-fm">
-                        <label>
-                            <input type="radio" name="radio-station" value="shakthi-audio" onclick="playSelectedStation()">
+                  <section id="Shakthi-fm">  
+                  
                             Shakthi FM
-                        </label>
+                       
                         <audio id="shakthi-audio" controls>
                             
                             <source src="https://mbc.thestreamtech.com:8086/stream" type="audio/ogg">
                         </audio>
-                    </section>
+                    
                     <section id="tamil-national-service">
-                        <label>
-                            <input type="radio" name="radio-station" value="tamil-national-service" onclick="playSelectedStation()">
+                        
+                            
                             Tamil National Service </label>
                         <audio id="tamil-national-service" controls>
                             <source src="https://ssl.surfmusic.de/s.php?s=http://220.247.227.6:8000/Tnsstream?1737629476" type="audio/mpeg">
                         </audio>
-                    </section>
+                   
                     <section id="thendral-fm">
-                        <label>
-                            <input type="radio" name="radio-station" value=" thendral-fm" onclick="playSelectedStation()">
+                        
+                            
                             Thendral FM
-                        </label>
+                        
                         <audio id="thendral-fm" controls>
                             <source src="https://ssl.surfmusic.de/s.php?s=http://220.247.227.20:8000/Threndralstream?1737629131" type="audio/mpeg">
                         </audio>
-                    </section>
+                    
                     <section id="Vasantham-Fm">
-                        <label>
-                            <input type="radio" name="radio-station" value="Vasantham-Fm"
-  onclick="playSelectedStation()"> Vasantham Fm  </label>  
+                        
+                             Vasantham Fm   
   <audio id="Vasantham-Fm" controls> <source src="https://cp12.serverse.com/proxy/vasanthamfm?mp=/stream&1737629608" type="audio/mpeg"></audio> </section>
                     <section id="bbc-world-service">
-                        <label>
-                            <input type="radio" name="radio-station" value="bbc-world-service" onclick="playSelectedStation()">
+                        
+                            
                             BBC World Service
-                        </label>
+                        
                         <audio id="bbc-world-service" controls>
                             <source src="http://stream.live.vc.bbcmedia.co.uk/bbc_world_service" type="audio/mpeg">
                         </audio>
-                    </section>
-                </form>
-            </div>
-        </section>
-    </div>
+                    
+                
+      </section>      
+       
+    
     <footer>
         <p>&copy; 2025 Niyazfolder. All rights reserved.</p>
     </footer>
